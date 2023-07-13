@@ -9,10 +9,20 @@ import { GifsService } from 'src/app/gifs/services/gifs.service';
 })
 export class SidebarComponent {
 
-  constructor( private gifsService : GifsService ) { }
+  constructor( private gifsService : GifsService  ) { }
 
-  get tags() {
+  get tags(): string[] {
    return this.gifsService.tagsHistory;
   }
+
+  searchTag(tag: string): void {
+    return this.gifsService.searchTag(tag);
+  }
+  // searchTag() {
+  //   const newTag = this.searchBox.tagInput.nativeElement.value;
+
+  //   this.gifsService.searchTag(newTag);
+  //   this.searchBox.tagInput.nativeElement.value = '';
+  // }
 
 }
